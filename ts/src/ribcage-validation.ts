@@ -1,11 +1,8 @@
-/* eslint-disable @typescript-eslint/no-empty-interface */
 import {RC} from "@nartallax/ribcage"
-import {wrapFunctionWithValidator, FunctionArgumentCheckerOptions as _FunctionArgumentCheckerOptions} from "src/validated_function"
-import {ValidatorBuilder as _ValidatorBuilder, ValidatorBuilderOptions as _ValidatorBuilderOptions, ValidatorBuilderImpl} from "src/validator_builder"
+import {wrapFunctionWithValidator, FunctionArgumentCheckerOptions} from "src/validated_function"
+import {ValidatorBuilder, ValidatorBuilderOptions, ValidatorBuilderImpl} from "src/validator_builder"
 
 export namespace RCV {
-
-	export type ValidatorBuilderOptions = _ValidatorBuilderOptions
 
 	function getFullValidatorBuilderOpts(opts?: Partial<ValidatorBuilderOptions>): ValidatorBuilderOptions {
 		return {
@@ -16,16 +13,12 @@ export namespace RCV {
 		}
 	}
 
-	export type FunctionArgumentCheckerOptions = _FunctionArgumentCheckerOptions
-
 	function getFullArgCheckerOpts(opts?: Partial<FunctionArgumentCheckerOptions>): FunctionArgumentCheckerOptions {
 		return {
 			onExtraArguments: "validation_error",
 			...getFullValidatorBuilderOpts(opts)
 		}
 	}
-
-	export type ValidatorBuilder = _ValidatorBuilder
 
 	const builders = {} as {[k: string]: ValidatorBuilder}
 	export function getValidatorBuilder(opts?: Partial<ValidatorBuilderOptions>): ValidatorBuilder {
@@ -59,6 +52,7 @@ export namespace RCV {
 	}
 }
 
+/* eslint-disable @typescript-eslint/no-empty-interface */
 declare module "@nartallax/ribcage" {
 	export namespace RC {
 		export interface BaseTypeDefinition {

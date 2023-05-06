@@ -1,5 +1,4 @@
 import {RC} from "@nartallax/ribcage"
-import type {RCV} from "src/ribcage-validation"
 import {ValidationError} from "src/validation_error"
 import {ValidatorFunctionBuilder} from "src/function_generation/validator_function_builder"
 
@@ -31,9 +30,9 @@ interface ProxyFunctionPair {
 
 /** An aggregator over all validation building process
  * Manages caches, individual validator builders etc */
-export class ValidatorBuilderImpl {
+export class ValidatorBuilderImpl implements ValidatorBuilder {
 
-	constructor(readonly opts: RCV.ValidatorBuilderOptions) {}
+	constructor(readonly opts: ValidatorBuilderOptions) {}
 
 	readonly rawValidators = new Map<RC.Any, RawValidator>()
 	readonly currentlyBuildingValidators = new Map<RC.Any, ProxyFunctionPair | null>()

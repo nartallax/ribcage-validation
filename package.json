@@ -11,7 +11,7 @@
     "test:build": "./node_modules/.bin/parcel build --target test --no-cache",
     "test:run": "node ./dist/test/test.js",
     "dts": "npm run dts:generate && npm run dts:fix && npm run dts:cleanup",
-    "dts:generate": "./node_modules/.bin/dts-bundle-generator -o target/tmp_ribcage-validation.d.ts --project tsconfig.json --export-referenced-types false --no-banner ts/src/ribcage-validation.ts",
+    "dts:generate": "./node_modules/.bin/dts-bundle-generator -o target/tmp_ribcage-validation.d.ts --project tsconfig.json --export-referenced-types false --no-banner ts/src/ribcage-validation.ts --no-check --inline-declare-externals",
     "dts:fix": "sed 's/export [*] from.*//g' target/tmp_ribcage-validation.d.ts | sed 's/export [{][}].*//g' > ./target/ribcage-validation.d.ts",
     "dts:cleanup": "rm target/tmp_ribcage-validation.d.ts",
     "typecheck": "cd ts && ../node_modules/typescript/bin/tsc --noEmit && cd - > /dev/null",
