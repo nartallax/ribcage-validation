@@ -1,0 +1,6 @@
+ts/generated
+node_modules
+dist
+target
+.parcel-cache
+ribcage.d.ts
