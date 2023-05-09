@@ -125,6 +125,7 @@ module.exports = {
 		"@typescript-eslint/quotes": ["warn", "double"],
 		"@typescript-eslint/semi": ["warn", "never"],
 		"@typescript-eslint/space-before-function-paren": ["warn", "never"],
-		"@typescript-eslint/space-infix-ops": ["warn"]
+		"@typescript-eslint/space-infix-ops": ["warn"],
+		"@typescript-eslint/no-explicit-any": "off"
 	}
 }

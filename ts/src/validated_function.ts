@@ -1,4 +1,5 @@
 import {RC} from "@nartallax/ribcage"
+import {lengthWrapFunction} from "src/length_wrap_fn"
 import {ValidationError} from "src/validation_error"
 import {ValidatorBuilder, ValidatorBuilderOptions} from "src/validator_builder"
 
@@ -10,7 +11,7 @@ export function wrapFunctionWithValidator<T extends readonly RC.Any[], R>(types:
 
 	const validators = types.map(type => builder.buildNonThrowing(type))
 
-	return (...args) => {
+	return lengthWrapFunction(handler.length, (...args) => {
 		if(args.length !== types.length){
 			if(opts.onExtraArguments !== "allow_anything"){
 				throw new ValidationError(args, [], "arguments.length !== parameters.length", args)
@@ -31,5 +32,5 @@ export function wrapFunctionWithValidator<T extends readonly RC.Any[], R>(types:
 		}
 
 		return handler(...args as RC.TupleValue<T>)
-	}
+	})
 }

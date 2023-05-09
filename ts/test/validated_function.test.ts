@@ -27,4 +27,9 @@ describe("validated function", () => {
 		expect(() => (calcLength as any)({x: 3, y: 4, z: 5})).throwError(/ arguments\[0\] /)
 		expect(() => (calcLength as any)({x: 3, y: "uwu"})).throwError(/ arguments\[0\].y /)
 	})
+
+	test("validation wrapper length", () => {
+		expect(sumTwoNumbers.length).to.be(2)
+		expect(calcLength.length).to.be(1)
+	})
 })

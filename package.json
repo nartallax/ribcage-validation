@@ -34,7 +34,7 @@
   },
   "homepage": "https://github.com/nartallax/ribcage-validation#readme",
   "peerDependencies": {
-    "@nartallax/ribcage": "^1.1.0"
+    "@nartallax/ribcage": "^1.1.5"
   },
   "devDependencies": {
     "@nartallax/clamsensor": "^2.0.10",
