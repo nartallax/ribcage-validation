@@ -1,6 +1,6 @@
 {
   "name": "@nartallax/ribcage-validation",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Validation library based on Ribcage",
   "main": "ribcage-validation.js",
   "types": "ribcage-validation.d.ts",

@@ -1,5 +1,6 @@
 import {RC} from "@nartallax/ribcage"
 import {wrapFunctionWithValidator, FunctionArgumentCheckerOptions} from "src/validated_function"
+import {ValidationError} from "src/validation_error"
 import {ValidatorBuilder, ValidatorBuilderOptions, ValidatorBuilderImpl} from "src/validator_builder"
 
 export namespace RCV {
@@ -50,6 +51,9 @@ export namespace RCV {
 		const builder = getValidatorBuilder(opts)
 		return wrapFunctionWithValidator(types, opts, builder, handler)
 	}
+
+	export type Error = ValidationError
+	export const Error = ValidationError
 }
 
 /* eslint-disable @typescript-eslint/no-empty-interface */
