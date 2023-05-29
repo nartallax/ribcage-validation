@@ -6,7 +6,7 @@ import expect from "expect.js"
 
 describe("validated function", () => {
 
-	const sumTwoNumbers = RCV.validatedFunction([RC.number(), RC.number()] as const, (a, b) => a + b)
+	const sumTwoNumbers = RCV.validatedFunction([RC.number(), RC.number()], (a, b) => a + b)
 
 	test("function checks arguments", () => {
 		expect(sumTwoNumbers(2, 2)).to.be(4)
@@ -19,7 +19,7 @@ describe("validated function", () => {
 	})
 
 	const calcLength = RCV.validatedFunction(
-		[RC.struct({x: RC.number(), y: RC.number()})] as const,
+		[RC.struct({x: RC.number(), y: RC.number()})],
 		x => Math.sqrt(x.x ** 2 + x.y ** 2)
 	)
 	test("function check indepth", () => {

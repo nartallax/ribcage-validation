@@ -243,8 +243,8 @@ describe("union/intersection types validation", () => {
 
 	const ObjectMapOrDiscriminatedUnion = RC.union([
 		RC.objectMap(RC.number()),
-		RC.struct({type: RC.constant("a" as const), value: RC.bool()}),
-		RC.struct({type: RC.constant("b" as const), value: RC.string()})
+		RC.struct({type: RC.constant("a"), value: RC.bool()}),
+		RC.struct({type: RC.constant("b"), value: RC.string()})
 	])
 	test("object map or discriminated union", () => {
 		expectNoValidationError(ObjectMapOrDiscriminatedUnion, {type: "a", value: false})

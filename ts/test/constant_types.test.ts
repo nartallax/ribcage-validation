@@ -3,7 +3,7 @@ import {RC} from "@nartallax/ribcage"
 import {expectNoValidationError, expectValidationError} from "test/test_utils"
 
 describe("constant types validation", () => {
-	const myFalse = RC.constant(false as const)
+	const myFalse = RC.constant(false)
 	test("false const", () => {
 		expectNoValidationError(myFalse, false)
 		expectValidationError(myFalse, true)
@@ -24,7 +24,7 @@ describe("constant types validation", () => {
 		expectValidationError(myUndefined, null)
 	})
 
-	const answerToEverything = RC.constant(42 as const)
+	const answerToEverything = RC.constant(42)
 	test("42 const", () => {
 		expectNoValidationError(answerToEverything, 42)
 		expectValidationError(answerToEverything, 43)
@@ -48,11 +48,11 @@ describe("constant types validation", () => {
 	})
 
 	const nestedUnions = RC.union([
-		RC.constant(1 as const),
-		RC.constant(2 as const),
+		RC.constant(1),
+		RC.constant(2),
 		RC.union([
-			RC.constant(3 as const),
-			RC.constant(4 as const)
+			RC.constant(3),
+			RC.constant(4)
 		])
 	])
 	test("nested const union", () => {
@@ -64,10 +64,10 @@ describe("constant types validation", () => {
 	const quality = RC.union([
 		myNull,
 		myFalse,
-		RC.constant(1 as const),
-		RC.constant(2 as const),
-		RC.constant(3 as const),
-		RC.constant("absolutely perfect" as const)
+		RC.constant(1),
+		RC.constant(2),
+		RC.constant(3),
+		RC.constant("absolutely perfect")
 	])
 	test("mixed constant union", () => {
 		expectNoValidationError(quality, 2)

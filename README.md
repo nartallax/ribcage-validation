@@ -25,7 +25,7 @@ import {RCV} from "@nartallax/ribcage-validation"
 let point = RC.struct({x: RC.number(), y: RC.number()})
 
 // create a function that uses this data structure
-let distanceBetweenPoints = RCV.validatedFunction([point, point] as const, (a, b) => {
+let distanceBetweenPoints = RCV.validatedFunction([point, point], (a, b) => {
 	return Math.sqrt((a.x - b.x) ** 2 + (a.y - b.y) ** 2)
 })
 

@@ -4,9 +4,9 @@ import {expectNoValidationError, expectValidationError} from "test/test_utils"
 
 describe("discriminated unions validation", () => {
 	const unionA = RC.union([
-		RC.struct({type: RC.constant(1 as const), a: RC.string()}),
-		RC.struct({type: RC.constant(2 as const), a: RC.number()}),
-		RC.struct({type: RC.constant(3 as const), a: RC.bool()})
+		RC.struct({type: RC.constant(1), a: RC.string()}),
+		RC.struct({type: RC.constant(2), a: RC.number()}),
+		RC.struct({type: RC.constant(3), a: RC.bool()})
 	])
 
 	test("simple union", () => {
@@ -21,9 +21,9 @@ describe("discriminated unions validation", () => {
 	})
 
 	const unionB = RC.union([
-		RC.struct({size: RC.constant(1 as const), b: RC.string()}),
-		RC.struct({size: RC.constant(2 as const), b: RC.number()}),
-		RC.struct({size: RC.constant(3 as const), b: RC.bool()})
+		RC.struct({size: RC.constant(1), b: RC.string()}),
+		RC.struct({size: RC.constant(2), b: RC.number()}),
+		RC.struct({size: RC.constant(3), b: RC.bool()})
 	])
 	const unionC = RC.union([
 		unionA,

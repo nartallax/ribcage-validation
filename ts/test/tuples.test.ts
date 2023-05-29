@@ -16,7 +16,7 @@ describe("tuples validation", () => {
 		expectValidationError(tupleA, [0, false, ""], "value[1]")
 	})
 
-	const tupleWithCustomValidator = RC.tuple([RC.int(), RC.int()] as const, {
+	const tupleWithCustomValidator = RC.tuple([RC.int(), RC.int()], {
 		validators: [x => (x[0] + x[1]) % 2 === 0]
 	})
 	test("simple tuple with custom validation", () => {

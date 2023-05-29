@@ -15,7 +15,7 @@ describe("object map validation", () => {
 	})
 
 	const defB = RC.objectMap(RC.int(), {
-		key: RC.union((["a", "b", "c", "d"] as const).map(x => RC.constant(x)))
+		key: RC.constUnion(["a", "b", "c", "d"])
 	})
 	test("mapped object map", () => {
 		expectValidationError(defB, {})

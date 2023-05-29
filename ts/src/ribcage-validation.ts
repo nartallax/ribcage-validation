@@ -34,10 +34,9 @@ export namespace RCV {
 
 	type ValidatedFunctionHandler<T extends readonly RC.Any[], R> = (...args: RC.TupleValue<T>) => R
 
-	// TODO: const T here
-	export function validatedFunction<T extends readonly RC.Any[], R>(types: T, handler: ValidatedFunctionHandler<T, R>): (...args: RC.TupleValue<T>) => R
-	export function validatedFunction<T extends readonly RC.Any[], R>(types: T, options: Partial<FunctionArgumentCheckerOptions>, handler: (...args: RC.TupleValue<T>) => R): (...args: RC.TupleValue<T>) => R
-	export function validatedFunction<T extends readonly RC.Any[], R>(types: T, a: ValidatedFunctionHandler<T, R> | Partial<FunctionArgumentCheckerOptions>, b?: ValidatedFunctionHandler<T, R>): (...args: RC.TupleValue<T>) => R {
+	export function validatedFunction<const T extends readonly RC.Any[], R>(types: T, handler: ValidatedFunctionHandler<T, R>): (...args: RC.TupleValue<T>) => R
+	export function validatedFunction<const T extends readonly RC.Any[], R>(types: T, options: Partial<FunctionArgumentCheckerOptions>, handler: (...args: RC.TupleValue<T>) => R): (...args: RC.TupleValue<T>) => R
+	export function validatedFunction<const T extends readonly RC.Any[], R>(types: T, a: ValidatedFunctionHandler<T, R> | Partial<FunctionArgumentCheckerOptions>, b?: ValidatedFunctionHandler<T, R>): (...args: RC.TupleValue<T>) => R {
 		let opts: FunctionArgumentCheckerOptions
 		let handler: ValidatedFunctionHandler<T, R>
 		if(b === undefined){

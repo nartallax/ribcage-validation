@@ -32,7 +32,7 @@ describe("array validation", () => {
 		expectValidationError(Nulls, [null, false, null], "value[1]")
 	})
 
-	const Fives = RC.array(RC.constant(5 as const))
+	const Fives = RC.array(RC.constant(5))
 	test("fives array", () => {
 		expectNoValidationError(Fives, [5])
 		expectNoValidationError(Fives, [])
